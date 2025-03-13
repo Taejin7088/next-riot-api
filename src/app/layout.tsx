@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='h-full w-full'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full w-full`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full w-full ${BG_COLORS.DARK}`}
       >
         <AppHeader />
         <main className={`${BG_COLORS.DARK} top-[60px] w-full h-full`}>
