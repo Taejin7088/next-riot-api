@@ -11,7 +11,7 @@ const ItemPage = async () => {
   const items = await getItems();
 
   return (
-    <div className='flex flex-wrap gap-8 h-full w-full'>
+    <section className='flex flex-wrap gap-8 h-full w-full mt-10 justify-center'>
       {items.map((item) => {
         return (
           <ItemCard
@@ -24,7 +24,7 @@ const ItemPage = async () => {
           />
         );
       })}
-    </div>
+    </section>
   );
 };
 
