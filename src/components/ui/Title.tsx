@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 
 type Props = {
   size: typeof SIZE.L | typeof SIZE.XL;
-  bgColor: (typeof BG_COLORS)[keyof typeof BG_COLORS];
+  bgColor?: (typeof BG_COLORS)[keyof typeof BG_COLORS] | string;
   textColor: typeof TEXT_COLORS.ORANGE | typeof TEXT_COLORS.RED;
   children: ReactNode;
 };
@@ -11,7 +11,7 @@ type Props = {
 const Title = ({
   size,
   textColor,
-  bgColor,
+  bgColor = 'bg-inherit',
   children,
 }: Props): React.JSX.Element => {
   const testSize = {

@@ -22,7 +22,7 @@ const config: Config = {
           green: '#00c896',
           white: '#f5f5f5',
           gray: '#b0b0b0',
-          orange: '#FF5722',
+          orange: '#ff8922',
         },
       },
     },

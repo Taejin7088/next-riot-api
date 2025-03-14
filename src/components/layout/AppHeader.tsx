@@ -1,6 +1,6 @@
 import { BG_COLORS, TEXT_COLORS, SIZE } from '@/constants/uiConstants';
 import React from 'react';
-import Text from './ui/Text';
+import Text from '../ui/Text';
 import Link from 'next/link';
 // import { getTailwindColor } from '@/utils/getTailwindClass';
 
