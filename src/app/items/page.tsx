@@ -2,6 +2,7 @@
 import React from 'react';
 import { getItems } from '../api/common/getItems';
 import ItemCard from '@/components/ui/ItemCard';
+import CardGrid from '@/components/ui/CardGrid';
 export const metadata = {
   title: '리그오브레전드 아이템 목록',
   description: '리그오브레전드의 아이템 목록을 표시합니다.',
@@ -11,7 +12,7 @@ const ItemPage = async () => {
   const items = await getItems();
 
   return (
-    <section className='flex flex-wrap gap-8 h-full w-full mt-10 justify-center'>
+    <CardGrid>
       {items.map((item) => {
         return (
           <ItemCard
@@ -24,7 +25,7 @@ const ItemPage = async () => {
           />
         );
       })}
-    </section>
+    </CardGrid>
   );
 };
 

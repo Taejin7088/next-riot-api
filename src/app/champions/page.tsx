@@ -2,6 +2,7 @@
 import React from 'react';
 import { getChampions } from '../api/common/getChampions';
 import ChampionCard from '@/components/ui/ChampionCard';
+import CardGrid from '@/components/ui/CardGrid';
 
 export const metadata = {
   title: '리그오브레전드 챔피언 목록',
@@ -13,7 +14,7 @@ const ChampionsPage = async () => {
   const champions = await getChampions();
 
   return (
-    <section className='flex flex-wrap gap-8 h-full w-full mt-10 justify-center'>
+    <CardGrid>
       {champions.map((champion) => {
         return (
           <ChampionCard
@@ -25,7 +26,7 @@ const ChampionsPage = async () => {
           />
         );
       })}
-    </section>
+    </CardGrid>
   );
 };
 
