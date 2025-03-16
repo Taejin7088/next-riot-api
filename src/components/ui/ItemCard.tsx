@@ -2,6 +2,8 @@ import React from 'react';
 import Text from './Text';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
 import Image from 'next/image';
+import { IMG_URL_BASE } from '@/constants/url';
+import CardStyle from './CardStyle';
 type Props = {
   name: string;
   image: string;
@@ -18,9 +20,9 @@ const ItemCard = ({
   description,
 }: Props): React.JSX.Element => {
   return (
-    <div className='h-[300px] w-[300px] border-primary-white border-solid border flex flex-col gap-4 items-center overflow-y-auto'>
+    <CardStyle>
       <Image
-        src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/item/${image}`}
+        src={`${IMG_URL_BASE}item/${image}`}
         alt={`${name} 이미지`}
         width={100}
         height={100}
@@ -43,7 +45,7 @@ const ItemCard = ({
           {description.replace(/<[^>]*>/g, '')}
         </Text>
       </div>
-    </div>
+    </CardStyle>
   );
 };
 

@@ -3,6 +3,7 @@ import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
 import Image from 'next/image';
 import CardStyle from './CardStyle';
 import Link from 'next/link';
+import { IMG_URL_BASE } from '@/constants/url';
 type Props = {
   name: string;
   image: string;
@@ -15,7 +16,7 @@ const ItemCard = ({ name, image, title, id }: Props): React.JSX.Element => {
     <Link href={`/champions/${id}`}>
       <CardStyle>
         <Image
-          src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${image}`}
+          src={`${IMG_URL_BASE}champion/${image}`}
           alt={`${name} 이미지`}
           width={180}
           height={180}

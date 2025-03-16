@@ -4,6 +4,7 @@ import CardStyle from '@/components/ui/CardStyle';
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
+import { IMG_URL_BASE } from '@/constants/url';
 import Image from 'next/image';
 import React from 'react';
 
@@ -38,7 +39,7 @@ const ChampionsDetailPage = async ({ params }: params) => {
       </Text>
 
       <Image
-        src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${championsDetailData.image.full}`}
+        src={`${IMG_URL_BASE}champion/${championsDetailData.image.full}`}
         alt={`${championsDetailData.name} 이미지`}
         width={180}
         height={180}
@@ -61,7 +62,7 @@ const ChampionsDetailPage = async ({ params }: params) => {
                   {spell.name}
                 </Text>
                 <Image
-                  src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/spell/${spell.image.full}`}
+                  src={`${IMG_URL_BASE}spell/${spell.image.full}`}
                   alt={`${spell.name} 이미지`}
                   width={70}
                   height={70}

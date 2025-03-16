@@ -1,4 +1,5 @@
 import { VERSION_UPDATE_INTERVAL } from '@/constants/time';
+import { INTERNAL_API_BASE } from '@/constants/url';
 import { ChampionType } from '@/types/championsType';
 import { NextResponse } from 'next/server';
 
@@ -19,7 +20,7 @@ export const GET = async (): Promise<NextResponse> => {
   console.log(freeChampionIds);
 
   //전체 챔피언 목록을 보내주는 라우터 핸들러에 요청
-  const response = await fetch(`http://localhost:3000/api/champions`, {
+  const response = await fetch(`${INTERNAL_API_BASE}champions`, {
     next: { revalidate: VERSION_UPDATE_INTERVAL },
   });
   const data: Record<string, ChampionType> = await response.json();

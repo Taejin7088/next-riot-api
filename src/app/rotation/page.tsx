@@ -5,6 +5,7 @@ import CardGrid from '@/components/ui/CardGrid';
 import ChampionCard from '@/components/ui/ChampionCard';
 import Title from '@/components/ui/Title';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
+import { INTERNAL_API_BASE } from '@/constants/url';
 import { ChampionCardType } from '@/types/championsType';
 import { useEffect, useState } from 'react';
 
@@ -13,9 +14,7 @@ const RotationChampionsPage = () => {
 
   useEffect(() => {
     const getRotation = async (): Promise<void> => {
-      const response = await fetch(
-        `http://localhost:3000/api/champions/rotation`
-      );
+      const response = await fetch(`${INTERNAL_API_BASE}champions/rotation`);
 
       const data: Record<string, ChampionCardType> = await response.json();
       setChampions(Object.values(data));
