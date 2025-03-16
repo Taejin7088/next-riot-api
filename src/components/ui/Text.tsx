@@ -23,7 +23,6 @@ const Text = ({
   };
 
   return (
-    // <p className={clsx(textColor, textBgColor, testSize[size])}>{children}</p>
     <p className={`${textColor} ${testSize[size]} ${bgColor}`}>{children}</p>
   );
 };
