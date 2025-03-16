@@ -7,7 +7,18 @@ import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
 import Image from 'next/image';
 import React from 'react';
 
-const ChampionsDetailPage = async ({ params }: { params: { id: string } }) => {
+type params = { params: { id: string } };
+
+export const generateMetadata = async ({ params }: params) => {
+  const championsDetailData = await getChampion(params.id);
+  return {
+    title: `${championsDetailData.name} 상세정보`,
+    description: `${championsDetailData.id}스토리와 스킬 정보를 표시합니다.`,
+    keywords: [`${championsDetailData.name}`, `${championsDetailData.lore}`],
+  };
+};
+
+const ChampionsDetailPage = async ({ params }: params) => {
   const championsDetailData = await getChampion(params.id);
   console.log(championsDetailData.id);
   console.log(championsDetailData.name); // 오로라 (챔피언이름)
@@ -44,9 +55,6 @@ const ChampionsDetailPage = async ({ params }: { params: { id: string } }) => {
 
         <div className='flex flex-wrap gap-5'>
           {championsDetailData.spells.map((spell) => {
-            console.log(
-              `https://ddragon.leagueoflegends.com/cdn/15.5.1/img/spell/${spell.image}`
-            );
             return (
               <CardStyle key={spell.id}>
                 <Text size={SIZE.L} textColor={TEXT_COLORS.RED}>
