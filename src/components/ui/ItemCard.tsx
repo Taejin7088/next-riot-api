@@ -21,7 +21,7 @@ const ItemCard = ({
     <div className='h-[300px] w-[300px] border-primary-white border-solid border flex flex-col gap-4 items-center overflow-y-auto'>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/item/${image}`}
-        alt='v13 image'
+        alt={`${name} 이미지`}
         width={100}
         height={100}
       />

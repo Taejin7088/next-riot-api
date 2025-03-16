@@ -16,7 +16,7 @@ const ItemCard = ({ name, image, title, id }: Props): React.JSX.Element => {
       <CardStyle>
         <Image
           src={`https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${image}`}
-          alt='v13 image'
+          alt={`${name} 이미지`}
           width={180}
           height={180}
         />
