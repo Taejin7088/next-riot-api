@@ -1,6 +1,6 @@
 import { ChampionCardType } from '@/types/championsType';
 import { NextResponse } from 'next/server';
-import { getApiUrl } from '../common/getRoitApiUrl';
+import { getApiUrl } from '../common/getRiotApiUrl';
 import { VERSION_UPDATE_INTERVAL } from '@/constants/time';
 
 //전체 챔피언 목록을 response해주는 라우터 핸들러
