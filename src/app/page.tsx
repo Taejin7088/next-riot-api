@@ -1,7 +1,6 @@
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
-import { IMG_URL_BASE } from '@/constants/url';
 import Image from 'next/image';
 import Link from 'next/link';
 
