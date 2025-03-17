@@ -10,14 +10,12 @@ export const GET = async (): Promise<NextResponse> => {
     'https://kr.api.riotgames.com/lol/platform/v3/champion-rotations',
     {
       headers: {
-        'X-Riot-Token': process.env.NEXT_PUBLIC_RIOT_API_KEY!,
+        'X-Riot-Token': process.env.RIOT_API_KEY!,
       },
       next: { revalidate: VERSION_UPDATE_INTERVAL },
     }
   );
   const { freeChampionIds } = await res.json();
-
-  console.log(freeChampionIds);
 
   //전체 챔피언 목록을 보내주는 라우터 핸들러에 요청
   const response = await fetch(`${INTERNAL_API_BASE}champions`, {
