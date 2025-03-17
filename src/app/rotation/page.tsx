@@ -4,37 +4,44 @@
 import CardGrid from '@/components/ui/CardGrid';
 import ChampionCard from '@/components/ui/ChampionCard';
 import Title from '@/components/ui/Title';
+import { QUERY_KEY } from '@/constants/queryKey';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
-import { INTERNAL_API_BASE } from '@/constants/url';
+
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
+
+import { getRotationChampions } from '../api/common/getRotationChampions';
 import { ChampionCardType } from '@/types/championsType';
 import { CustomErr } from '@/types/customObj';
-import { useEffect, useState } from 'react';
 
 const RotationChampionsPage = () => {
-  const [champions, setChampions] = useState<ChampionCardType[]>([]);
+  const {
+    data,
+    error,
+    isPending,
+  }: UseQueryResult<ChampionCardType[], CustomErr> = useQuery({
+    queryKey: [QUERY_KEY.ROTATION_CHAMPIONS],
+    queryFn: getRotationChampions,
+  });
 
-  useEffect(() => {
-    const setRotation = async (): Promise<void> => {
-      const response = await fetch(`${INTERNAL_API_BASE}champions/rotation`);
-      const data: Record<string, ChampionCardType> | CustomErr =
-        await response.json();
-      setChampions(Object.values(data));
-    };
-
-    setRotation();
-  }, []);
-
-  if (champions.length === 0) {
+  if (isPending) {
     return (
       <Title size={SIZE.XL} textColor={TEXT_COLORS.RED}>
-        로딩중입니다.
+        로딩중입니다...
+      </Title>
+    );
+  }
+
+  if (error) {
+    return (
+      <Title size={SIZE.XL} textColor={TEXT_COLORS.RED}>
+        에러 :: {error.errorMessage}
       </Title>
     );
   }
 
   return (
     <CardGrid>
-      {champions.map((champion) => {
+      {data.map((champion) => {
         return (
           <ChampionCard
             key={champion.name}

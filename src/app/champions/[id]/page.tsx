@@ -21,12 +21,6 @@ export const generateMetadata = async ({ params }: params) => {
 
 const ChampionsDetailPage = async ({ params }: params) => {
   const championsDetailData = await getChampion(params.id);
-  // console.log(championsDetailData.id);
-  // console.log(championsDetailData.name); // 오로라 (챔피언이름)
-  // console.log(championsDetailData.title); // 세계경계선에선 마녀(제목);
-  // console.log(championsDetailData.image.full); // 챔피언사진링크
-  // console.log(championsDetailData.lore); // 챔피언스토리
-  // console.log(championsDetailData.spells); // 챔피언 스킬 객체배열
 
   return (
     <main className='flex flex-col p-10 gap-7'>
