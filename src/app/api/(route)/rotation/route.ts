@@ -7,7 +7,7 @@ export const GET = async (): Promise<NextResponse> => {
   //로테이션 챔피언 id를 받아오는 요청
   try {
     const res = await fetch(
-      'https://kr.api.riotgames.com/lol/platform/v3/champion-rotations1',
+      'https://kr.api.riotgames.com/lol/platform/v3/champion-rotations',
       {
         headers: {
           'X-Riot-Token': process.env.RIOT_API_KEY!,

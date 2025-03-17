@@ -1,7 +1,7 @@
 import { ChampionCardType } from '@/types/championsType';
 import { NextResponse } from 'next/server';
-import { getRiotApiUrl } from '../serverAction/getRiotApiUrl';
 import { VERSION_UPDATE_INTERVAL } from '@/constants/time';
+import { getRiotApiUrl } from '../../serverAction/getRiotApiUrl';
 
 //전체 챔피언 목록을 response해주는 라우터 핸들러
 //값 변경 주기 하루에 한번
