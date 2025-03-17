@@ -1,5 +1,5 @@
 import { ChampionType } from '@/types/championsType';
-import { getApiUrl } from './getRiotApiUrl';
+import { getApiUrl } from '../serverAction/getRiotApiUrl';
 
 //챔피언 디테일 페이지에 쓰이는 api요청(SSR)
 export const getChampion = async (id: string): Promise<ChampionType> => {

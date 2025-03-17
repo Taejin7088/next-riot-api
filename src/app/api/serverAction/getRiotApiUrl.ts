@@ -1,14 +1,13 @@
-import { VERSION_UPDATE_INTERVAL } from '@/constants/time';
-import { NextResponse } from 'next/server';
+'use server';
 
-//버전정보를 하루에 한번씩 받아와서 response해주는 라우터 핸들러
-//값 변경 주기 하루에 한번
-export const GET = async () => {
+import { VERSION_UPDATE_INTERVAL } from '@/constants/time';
+
+//받아온 버전으로 URL을 만들어주는 함수
+export const getApiUrl = async () => {
   const response = await fetch(
     'https://ddragon.leagueoflegends.com/api/versions.json',
     { next: { revalidate: VERSION_UPDATE_INTERVAL } }
   );
   const data = await response.json();
-
-  return NextResponse.json(data[0]);
+  return `https://ddragon.leagueoflegends.com/cdn/${data[0]}/data/ko_KR`;
 };

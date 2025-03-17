@@ -7,20 +7,21 @@ import Title from '@/components/ui/Title';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
 import { INTERNAL_API_BASE } from '@/constants/url';
 import { ChampionCardType } from '@/types/championsType';
+import { CustomErr } from '@/types/customObj';
 import { useEffect, useState } from 'react';
 
 const RotationChampionsPage = () => {
   const [champions, setChampions] = useState<ChampionCardType[]>([]);
 
   useEffect(() => {
-    const getRotation = async (): Promise<void> => {
+    const setRotation = async (): Promise<void> => {
       const response = await fetch(`${INTERNAL_API_BASE}champions/rotation`);
-
-      const data: Record<string, ChampionCardType> = await response.json();
+      const data: Record<string, ChampionCardType> | CustomErr =
+        await response.json();
       setChampions(Object.values(data));
     };
 
-    getRotation();
+    setRotation();
   }, []);
 
   if (champions.length === 0) {

@@ -1,4 +1,3 @@
-import { VERSION_UPDATE_INTERVAL } from '@/constants/time';
 import { INTERNAL_API_BASE } from '@/constants/url';
 import { ChampionType } from '@/types/championsType';
 import { NextResponse } from 'next/server';
@@ -12,22 +11,18 @@ export const GET = async (): Promise<NextResponse> => {
       headers: {
         'X-Riot-Token': process.env.RIOT_API_KEY!,
       },
-      next: { revalidate: VERSION_UPDATE_INTERVAL },
     }
   );
   const { freeChampionIds } = await res.json();
 
   //전체 챔피언 목록을 보내주는 라우터 핸들러에 요청
-  const response = await fetch(`${INTERNAL_API_BASE}champions`, {
-    next: { revalidate: VERSION_UPDATE_INTERVAL },
-  });
+  const response = await fetch(`${INTERNAL_API_BASE}champions`);
   const data: Record<string, ChampionType> = await response.json();
 
   //전체데이터에서 챔피언 무료챔피언 데이터만 뽑아내기
   const newData: Record<string, ChampionType> = {};
   Object.entries(data).forEach((champion) => {
     if (freeChampionIds.includes(+champion[1].key)) {
-      console.log(champion);
       newData[champion[0]] = champion[1];
     }
   });
