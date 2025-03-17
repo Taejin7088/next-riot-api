@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import '../styles/globals.css';
 import AppHeader from '@/components/layout/AppHeader';
 import { BG_COLORS } from '@/constants/uiConstants';
+import Providers from './providers';
 
 const geistSans = localFont({
   src: '../public/fonts/GeistVF.woff',
@@ -32,7 +33,7 @@ export default function RootLayout({
       >
         <AppHeader />
         <main className={`${BG_COLORS.DARK} top-[60px] w-full h-full`}>
-          {children}
+          <Providers>{children}</Providers>
         </main>
       </body>
     </html>
