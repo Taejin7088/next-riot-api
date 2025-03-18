@@ -10,6 +10,7 @@ import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { getRotationChampions } from '../api/common/getRotationChampions';
 import { ChampionCardType } from '@/types/championsType';
 import { CustomErr } from '@/types/customObj';
+import Loading from '../loading';
 
 const RotationChampionsPage = () => {
   const {
@@ -22,11 +23,7 @@ const RotationChampionsPage = () => {
   });
 
   if (isPending) {
-    return (
-      <Title size={SIZE.XL} textColor={TEXT_COLORS.RED}>
-        로딩중입니다...
-      </Title>
-    );
+    return <Loading />;
   }
 
   if (error) {
