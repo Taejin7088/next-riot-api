@@ -1,6 +1,6 @@
-import { INTERNAL_API_BASE } from '@/constants/url';
 import { ChampionType } from '@/types/championsType';
 import { NextResponse } from 'next/server';
+import { getAllChampionsApi } from '../../serverAction/getAllChampionsApi';
 
 //로테이션 챔피언 목록을 response해주는 라우터 핸들러
 export const GET = async (): Promise<NextResponse> => {
@@ -16,9 +16,7 @@ export const GET = async (): Promise<NextResponse> => {
     );
     const { freeChampionIds } = await res.json();
 
-    //전체 챔피언 목록을 보내주는 라우터 핸들러에 요청
-    const response = await fetch(`${INTERNAL_API_BASE}champions`);
-    const data: Record<string, ChampionType> = await response.json();
+    const data = await getAllChampionsApi();
 
     //전체데이터에서 챔피언 무료챔피언 데이터만 뽑아내기
     const newData: Record<string, ChampionType> = {};

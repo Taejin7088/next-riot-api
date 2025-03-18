@@ -1,5 +1,5 @@
 //챔피언상세보기 SSR
-import { getChampion } from '@/app/api/common/getChampion';
+import { getDetailChampion } from '@/app/api/common/getDetailChampion';
 import CardStyle from '@/components/ui/CardStyle';
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
@@ -11,7 +11,7 @@ import React from 'react';
 type params = { params: { id: string } };
 
 export const generateMetadata = async ({ params }: params) => {
-  const championsDetailData = await getChampion(params.id);
+  const championsDetailData = await getDetailChampion(params.id);
   return {
     title: `${championsDetailData.name} 상세정보`,
     description: `${championsDetailData.id}스토리와 스킬 정보를 표시합니다.`,
@@ -20,7 +20,7 @@ export const generateMetadata = async ({ params }: params) => {
 };
 
 const ChampionsDetailPage = async ({ params }: params) => {
-  const championsDetailData = await getChampion(params.id);
+  const championsDetailData = await getDetailChampion(params.id);
 
   return (
     <main className='flex flex-col p-10 gap-7'>
