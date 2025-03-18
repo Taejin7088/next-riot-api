@@ -6,9 +6,7 @@ import ChampionCard from '@/components/ui/ChampionCard';
 import Title from '@/components/ui/Title';
 import { QUERY_KEY } from '@/constants/queryKey';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
-
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-
 import { getRotationChampions } from '../api/common/getRotationChampions';
 import { ChampionCardType } from '@/types/championsType';
 import { CustomErr } from '@/types/customObj';
