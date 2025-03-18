@@ -9,12 +9,16 @@ import { getRiotUrlApi } from './getRiotUrlApi';
 export const getAllChampionsApi = async (): Promise<
   Record<string, ChampionType>
 > => {
-  const url = await getRiotUrlApi();
-  const response = await fetch(`${url}/champion.json`, {
-    next: { revalidate: VERSION_UPDATE_INTERVAL },
-  });
-  const { data }: { data: Record<string, ChampionType> } =
-    await response.json();
+  try {
+    const url = await getRiotUrlApi();
+    const response = await fetch(`${url}/champion.json`, {
+      next: { revalidate: VERSION_UPDATE_INTERVAL },
+    });
+    const { data }: { data: Record<string, ChampionType> } =
+      await response.json();
 
-  return data;
+    return data;
+  } catch {
+    throw new Error('전체챔피언 목록을 불러오는중 에러발생');
+  }
 };

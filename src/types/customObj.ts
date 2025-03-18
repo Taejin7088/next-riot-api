@@ -1,1 +1,1 @@
-export type CustomErr = { state: number; errorMessage: string };
+export type CustomErr = { state: number; message: string };

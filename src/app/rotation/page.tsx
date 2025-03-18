@@ -33,7 +33,7 @@ const RotationChampionsPage = () => {
     console.log(error);
     return (
       <Title size={SIZE.XL} textColor={TEXT_COLORS.RED}>
-        에러 :: {error.errorMessage}
+        에러 :: {error.message}
       </Title>
     );
   }

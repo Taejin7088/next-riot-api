@@ -8,7 +8,7 @@ export const getRotationChampions = async (): Promise<ChampionCardType[]> => {
   const data: Record<string, ChampionCardType> | CustomErr =
     await response.json();
 
-  if (data.state === 500) throw data;
+  if (data.state === 500) throw data.message;
 
   return Object.values(data);
 };

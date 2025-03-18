@@ -30,7 +30,7 @@ export const GET = async (): Promise<NextResponse> => {
   } catch {
     return NextResponse.json({
       state: 500,
-      errorMessage: '로테이션 챔피언을 불러오는 중 에러발생',
+      message: '로테이션 챔피언을 불러오는 중 에러발생',
     });
   }
 };
