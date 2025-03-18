@@ -12,6 +12,7 @@ export const GET = async (): Promise<NextResponse> => {
         headers: {
           'X-Riot-Token': process.env.RIOT_API_KEY!,
         },
+        cache: 'no-store',
       }
     );
     const { freeChampionIds } = await res.json();
