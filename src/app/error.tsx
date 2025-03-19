@@ -20,7 +20,7 @@ export default function Error({
   return (
     <main className='text-center mt-10 flex flex-col gap-10'>
       <Title size={SIZE.XL} textColor={TEXT_COLORS.RED}>
-        에러발생 :: ${error.message}
+        에러발생 :: {error.message}
       </Title>
 
       <Text size={SIZE.L} textColor={TEXT_COLORS.YELLOW}>
