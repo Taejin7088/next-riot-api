@@ -1,4 +1,5 @@
 //챔피언상세보기 SSR
+//params로 받아온 id로 챔피언 디테일 정보를 받아와서 표시
 import { getDetailChampion } from '@/app/api/common/getDetailChampion';
 import CardStyle from '@/components/ui/CardStyle';
 import Text from '@/components/ui/Text';

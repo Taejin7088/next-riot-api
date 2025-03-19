@@ -11,6 +11,7 @@ type Props = {
   id: string;
 };
 
+//챔피언을 표시하는데 쓰이는 카드
 const ItemCard = ({ name, image, title, id }: Props): React.JSX.Element => {
   return (
     <Link href={`/champions/${id}`}>

@@ -1,8 +1,9 @@
 //챔피언전체목록 ISR 그리드 카드로 표시 ISR(86400)
 import React from 'react';
-import { getChampions } from '../api/common/getChampions';
 import ChampionCard from '@/components/ui/ChampionCard';
 import CardGrid from '@/components/ui/CardGrid';
+import { ChampionCardType } from '@/types/championsType';
+import { getAllChampions } from '../api/serverAction/getAllChampions';
 
 export const metadata = {
   title: '리그오브레전드 챔피언 목록',
@@ -11,7 +12,8 @@ export const metadata = {
 };
 
 const ChampionsPage = async () => {
-  const champions = await getChampions();
+  const data: Record<string, ChampionCardType> = await getAllChampions();
+  const champions = Object.values(data);
 
   return (
     <CardGrid>

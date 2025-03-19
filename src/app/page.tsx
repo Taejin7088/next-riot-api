@@ -1,10 +1,10 @@
+//홈페이지 SSG
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 import { SIZE, TEXT_COLORS } from '@/constants/uiConstants';
 import Image from 'next/image';
 import Link from 'next/link';
 
-//SSG
 export const metadata = {
   title: '리그오브레전드 정보 사이트 홈',
   description: '리그오브레전드의 아이템 목록을 표시합니다.',

@@ -12,6 +12,7 @@ type Props = {
   description: string;
 };
 
+//아이템을 표시하는데 쓰이는 카드
 const ItemCard = ({
   name,
   image,
